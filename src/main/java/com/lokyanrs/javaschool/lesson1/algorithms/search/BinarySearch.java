@@ -1,4 +1,4 @@
-package com.lokyanrs.javaschool.lesson1.algorithms;
+package com.lokyanrs.javaschool.lesson1.algorithms.search;
 
 import java.util.Arrays;
 import java.util.List;

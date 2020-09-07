@@ -1,9 +1,10 @@
-package com.lokyanrs.javaschool.lesson1.algorithms;
+package com.lokyanrs.javaschool.lesson1.algorithms.sort;
 
 import java.util.*;
 
-public class BubbleSort {
-    public static <T extends Comparable<T>> void sort(List<T> list) {
+public class BubbleSorter implements Sorter {
+    @Override
+    public <T extends Comparable<T>> void sort(List<T> list) {
         boolean swapped;
         do {
             swapped = false;
@@ -17,13 +18,5 @@ public class BubbleSort {
             }
         }
         while (swapped);
-    }
-
-    public static void main(String[] args) {
-        List<Integer> list = Arrays.asList(5, 4, 3, 2, 1, 0, -1);
-        sort(list);
-        for (Integer integer : list) {
-            System.out.print(integer + " ");
-        }
     }
 }
