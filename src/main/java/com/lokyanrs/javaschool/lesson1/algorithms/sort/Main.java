@@ -1,7 +1,6 @@
 package com.lokyanrs.javaschool.lesson1.algorithms.sort;
 
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 
 public class Main {

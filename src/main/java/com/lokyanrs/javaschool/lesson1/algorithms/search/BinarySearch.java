@@ -5,6 +5,9 @@ import java.util.List;
 import java.util.NoSuchElementException;
 
 public class BinarySearch {
+    private static final String ACTUAL_INDEX = "Actual index = ";
+    private static final String EXPECTED_INDEX = "Expected index = ";
+
     public static <T extends Comparable<T>> int search(List<T> list, T elementToFind) {
         return find(list, elementToFind, 0, list.size());
     }
@@ -27,15 +30,15 @@ public class BinarySearch {
         List<Integer> list = Arrays.asList(-5, 1, 2, 5, 7, 9, 22, 56, 80, 99, 106, 130, 170, 171, 200, 205, 206, 245);
 
         int elementToFind = -5;
-        System.out.println("Actual index = " + search(list, elementToFind));
-        System.out.println("Expected index = " + list.indexOf(elementToFind));
+        System.out.println(ACTUAL_INDEX + search(list, elementToFind));
+        System.out.println(EXPECTED_INDEX + list.indexOf(elementToFind));
 
         elementToFind = 106;
-        System.out.println("Actual index = " + search(list, elementToFind));
-        System.out.println("Expected index = " + list.indexOf(elementToFind));
+        System.out.println(ACTUAL_INDEX + search(list, elementToFind));
+        System.out.println(EXPECTED_INDEX + list.indexOf(elementToFind));
 
         elementToFind = 245;
-        System.out.println("Actual index = " + search(list, elementToFind));
-        System.out.println("Expected index = " + list.indexOf(elementToFind));
+        System.out.println(ACTUAL_INDEX + search(list, elementToFind));
+        System.out.println(EXPECTED_INDEX + list.indexOf(elementToFind));
     }
 }
