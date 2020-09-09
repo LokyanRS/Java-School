@@ -34,6 +34,6 @@ public final class TextUtils {
     public static List<String> getStringsFromText() throws IOException {
         return Arrays.asList(
                 new String(Files.readAllBytes((Paths.get(FILE_PATH))))
-                .split("\\r\\n"));
+                .split("\\n"));
     }
 }

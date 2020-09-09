@@ -12,11 +12,10 @@ public class Task2 {
 
         wordsFromText.sort((o1, o2) -> {
             int compareResult = Integer.compare(o1.length(), o2.length());
-            if(compareResult != 0)
+            if (compareResult != 0)
                 return compareResult;
-            else {
+            else
                 return o1.compareTo(o2);
-            }
         });
         System.out.println(wordsFromText);
     }
