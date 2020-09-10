@@ -9,9 +9,9 @@ public class Task1 {
         List<String> wordsFromText = TextUtils.getWordsFromText();
 
         Set<String> hashSet = new HashSet<>();
-        for (String word : wordsFromText) {
+        for (String word : wordsFromText)
             hashSet.add(word.toLowerCase());
-        }
+
         System.out.println("Количество уникальных слов в файле: " + hashSet.size());
     }
 }
