@@ -1,5 +1,6 @@
 package com.lokyanrs.javaschool.terminal;
 
+import com.lokyanrs.javaschool.terminal.exceptions.AccessDeniedException;
 import com.lokyanrs.javaschool.terminal.exceptions.AccountIsLockedException;
 
 public class PinValidator {
@@ -30,8 +31,9 @@ public class PinValidator {
         }
     }
 
-    public boolean isAccessGranted() {
-        return accessGranted;
+    public void checkAccess() {
+        if(!accessGranted)
+            throw new AccessDeniedException("Отсутствует доступ. Вветиде пин-код");
     }
 
 }
