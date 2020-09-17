@@ -47,6 +47,10 @@ public class TerminalServer {
         account.setAmount(account.getAmount() - amount);
     }
 
+    public int getAccountPin(int accountId){
+        return findAccount(accountId).getPin();
+    }
+
     private Account findAccount(int accountId) {
         Account account = ACCOUNTS.stream().filter(c -> c.getAccountId() == accountId).findFirst().orElse(null);
         if (account == null)

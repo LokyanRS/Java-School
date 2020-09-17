@@ -2,16 +2,16 @@ package com.lokyanrs.javaschool.terminal;
 
 import com.lokyanrs.javaschool.server.TerminalServer;
 import com.lokyanrs.javaschool.terminal.exceptions.Not100MultiplicityException;
-import com.lokyanrs.javaschool.validator.PinValidator;
 
 public class TerminalImpl implements Terminal {
     private final int accountId;
     private final TerminalServer terminalServer;
-    private PinValidator pinValidator;
+    private final PinValidator pinValidator;
 
-    public TerminalImpl(int accountId, String pin) {
+    public TerminalImpl(int accountId) {
         this.accountId = accountId;
         terminalServer = new TerminalServer();
+        pinValidator = new PinValidator(terminalServer.getAccountPin(accountId));
     }
 
     @Override
