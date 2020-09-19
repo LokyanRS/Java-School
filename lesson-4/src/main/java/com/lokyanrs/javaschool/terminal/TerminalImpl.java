@@ -1,7 +1,6 @@
 package com.lokyanrs.javaschool.terminal;
 
 import com.lokyanrs.javaschool.server.TerminalServer;
-import com.lokyanrs.javaschool.terminal.exceptions.AccessDeniedException;
 import com.lokyanrs.javaschool.terminal.exceptions.AccountIsLockedException;
 import com.lokyanrs.javaschool.terminal.exceptions.Not100MultiplicityException;
 
@@ -38,7 +37,7 @@ public class TerminalImpl implements Terminal {
         terminalServer.withdraw(accountId, sum);
     }
 
-    public boolean enterPin(int pin) {
+    public void enterPin(int pin) throws AccountIsLockedException {
         pinValidator.enterPin(pin);
     }
 }
