@@ -1,6 +1,6 @@
 package com.lokyanrs.javaschool.calculator;
 
-public class FactorialImpl implements Factorial {
+public class CalculatorImpl implements Calculator {
     @Override
     public int calc(int number) {
         switch (number) {
