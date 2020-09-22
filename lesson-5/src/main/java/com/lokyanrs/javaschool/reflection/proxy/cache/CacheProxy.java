@@ -7,40 +7,41 @@ import org.slf4j.LoggerFactory;
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
 public class CacheProxy implements InvocationHandler {
     private static final Logger LOGGER = LoggerFactory.getLogger(CacheProxy.class);
 
-    private final Calculator calculator;
+    private final Object object;
 
-    private Map<Integer, Integer> cache = new HashMap<>();
+    private Map<Integer, Object> cache = new HashMap<>();
 
-    public CacheProxy(Calculator calculator) {
-        this.calculator = calculator;
+    public CacheProxy(Object object) {
+        this.object = object;
     }
 
-    public static <T> T newProxyFactory(Calculator calculator) {
+    public static <T> T newProxyFactory(Object object) {
         return (T) Proxy.newProxyInstance(ClassLoader.getSystemClassLoader(),
-                calculator.getClass().getInterfaces(),
-                new CacheProxy(calculator));
+                object.getClass().getInterfaces(),
+                new CacheProxy(object));
     }
 
     @Override
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
         if (method.isAnnotationPresent(Cache.class)) {
-            int argument = (int) args[0];
-            if (cache.containsKey(argument)){
+            int hashCode = Arrays.hashCode(args);
+            if (cache.containsKey(hashCode)){
                 LOGGER.info("Значение метода {} с аргументами {} взято из кэша", method.getName(), args);
-                return cache.get(argument);}
+                return cache.get(hashCode);}
             else {
                 LOGGER.info("Значение метода {} с аргументами {} было посчитано и будет занесено в кэш", method.getName(), args);
-                int result = (int) method.invoke(calculator, args);
-                cache.put(argument, result);
+                Object result = method.invoke(object, args);
+                cache.put(hashCode, result);
                 return result;
             }
         }
-        return method.invoke(calculator, args);
+        return method.invoke(object, args);
     }
 }
