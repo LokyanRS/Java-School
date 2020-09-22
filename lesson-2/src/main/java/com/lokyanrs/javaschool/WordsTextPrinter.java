@@ -1,6 +1,5 @@
 package com.lokyanrs.javaschool;
 
-import com.lokyanrs.javaschool.iterator.MyList;
 import org.slf4j.LoggerFactory;
 
 import java.io.IOException;

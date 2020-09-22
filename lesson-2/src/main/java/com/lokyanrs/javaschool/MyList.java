@@ -1,4 +1,4 @@
-package com.lokyanrs.javaschool.iterator;
+package com.lokyanrs.javaschool;
 
 import java.util.ArrayList;
 import java.util.Collection;

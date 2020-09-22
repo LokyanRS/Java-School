@@ -1,14 +1,15 @@
-package com.lokyanrs.javaschool.iterator;
+package com.lokyanrs.javaschool;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.NoSuchElementException;
 
-public class ReverseIterator<T> implements Iterator<T> {
+public class  MyIterator<T> implements Iterator<T> {
     private final List<T> list;
     private int lastReturned = -1; // Ни разу не обращались
 
-    public ReverseIterator(List<T> list) {
+    public MyIterator(List<T> list) {
         this.list = list;
     }
 
